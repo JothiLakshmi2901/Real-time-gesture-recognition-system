@@ -36,13 +36,13 @@ The system is integrated with a Flask-based web application, enabling user inter
 ┌----------------------------------------------------------------┐
 |    Technology	            |             Purpose                |
 |----------------------------------------------------------------|
-|    Python	            | Core programming language          |
-|    OpenCV	            | Video capture and frame processing |
-|    MediaPipe	            | Hand landmark detection            |
-|    TensorFlow	            | Model training and prediction      |
-|    NumPy	            | Numerical computations             |
-|    Flask	            | Web application backend            |
-|    Pickle	            | Label encoding storage             |
+|    Python	            | Core programming language              |
+|    OpenCV	            | Video capture and frame processing     |
+|    MediaPipe	        | Hand landmark detection                |
+|    TensorFlow	        | Model training and prediction          |
+|    NumPy	            | Numerical computations                 |
+|    Flask	            | Web application backend                |
+|    Pickle	            | Label encoding storage                 |
 └----------------------------------------------------------------┘
 
 
