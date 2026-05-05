@@ -22,15 +22,17 @@ It captures hand landmarks from live video, processes them into feature vectors,
 
 The system is integrated with a Flask-based web application, enabling user interaction through a browser interface.
 
-🚀 Features
-    ✋ Real-time hand gesture detection
-    🎯 Accurate gesture prediction using ANN model
-    📷 Webcam-based live input
-    21 hand landmarks extraction (63 features)
-    ⚡ Fast and efficient prediction pipeline
-    🌐 Web-based interface using Flask
-    🧠 Confidence-based filtering for reliable output
-
+## 🚀 Features
+```
+✔ Real-time hand gesture detection
+✔ Accurate gesture prediction using ANN model
+✔ Webcam-based live input
+✔ Hand landmark extraction (21 points → 63 features)
+✔ Fast and efficient processing pipeline
+✔ Web-based interface using Flask
+✔ Confidence-based filtering for reliable output
+✔ Converts gestures into meaningful text output
+```
 
 📊 Technologies Used
 ```
