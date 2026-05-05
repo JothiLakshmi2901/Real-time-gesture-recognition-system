@@ -32,19 +32,17 @@ The system is integrated with a Flask-based web application, enabling user inter
     🧠 Confidence-based filtering for reliable output
 
 
-🛠️ Technologies Used
-
-┌----------------------------------------------------------------┐
-|    Technology	            |             Purpose                |
-|----------------------------------------------------------------|
-|    Python	            | Core programming language              |
-|    OpenCV	            | Video capture and frame processing     |
-|    MediaPipe	        | Hand landmark detection                |
-|    TensorFlow	        | Model training and prediction          |
-|    NumPy	            | Numerical computations                 |
-|    Flask	            | Web application backend                |
-|    Pickle	            | Label encoding storage                 |
-└----------------------------------------------------------------┘
+📊 Technologies Used
+```
+Technology     | Purpose
+-------------- | --------------------------
+Python         | Core programming language
+OpenCV         | Video processing
+MediaPipe      | Hand tracking
+TensorFlow     | Model training
+Flask          | Web backend
+Pickle         | Label storage
+```
 
 
 ⚙️ How It Works
