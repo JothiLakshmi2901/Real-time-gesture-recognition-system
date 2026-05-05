@@ -1,0 +1,942 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Gesture Recognition - Restaurant Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: #f5f7fb;
+            color: #111827;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .container {
+            min-height: 100vh;
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 18px 24px 24px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 4px 20px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            color: #4361ee;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-size: 16px;
+            font-weight: 500;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a.active {
+            color: #4361ee;
+            border-bottom: 2px solid #4361ee;
+        }
+
+        /* ===== HERO ===== */
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 38px 40px;
+            display: grid;
+            grid-template-columns: 1.02fr 0.98fr;
+            align-items: center;
+            gap: 34px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+        }
+
+        .hero-content h1 {
+            margin: 0 0 18px;
+            font-size: 54px;
+            line-height: 1.08;
+            font-weight: 700;
+            color: #0f172a;
+            max-width: 500px;
+        }
+
+        .subtitle {
+            margin: 0 0 26px;
+            font-size: 20px;
+            line-height: 1.7;
+            color: #64748b;
+            max-width: 520px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #3867f5, #7c3aed);
+            color: #fff;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 18px 34px;
+            border-radius: 18px;
+            box-shadow: 0 10px 24px rgba(79, 70, 229, 0.18);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            border-radius: 0;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ===== SECTIONS ===== */
+        .how-to-use,
+        .features {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 34px 32px 38px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+        }
+
+        .how-to-use h2,
+        .features h2 {
+            margin: 0 0 30px;
+            text-align: center;
+            font-size: 34px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .step-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 22px;
+            padding: 24px 18px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #4361ee, #7c3aed);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .step-card h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #0f172a;
+        }
+
+        .step-card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #64748b;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .feature {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 22px;
+            padding: 24px 18px;
+            text-align: center;
+        }
+
+        .feature img {
+            width: 46px;
+            height: 46px;
+            margin-bottom: 12px;
+        }
+
+        .feature h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            color: #0f172a;
+        }
+
+        .feature p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #64748b;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            padding: 20px 0 10px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1,
+            .subtitle {
+                max-width: 100%;
+            }
+
+            .hero-image img {
+                max-width: 560px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 14px 14px 20px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            .logo h1 {
+                font-size: 22px;
+            }
+
+            .nav-links {
+                gap: 18px;
+            }
+
+            .hero {
+                padding: 26px 22px;
+                gap: 24px;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+            }
+
+            .steps,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-to-use,
+            .features {
+                padding: 26px 18px 28px;
+            }
+
+            .how-to-use h2,
+            .features h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <h1>🤟 Gesture Recognition System</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/detect">Detect</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Bridging the Communication Gap</h1>
+                    <p class="subtitle">
+                        Empowering differently-abled individuals in restaurants through real-time sign language recognition
+                    </p>
+                    <a href="/detect" class="cta-button">Start Detection →</a>
+                </div>
+
+                <div class="hero-image">
+                    <img 
+                        src="{{ url_for('static', filename='images/home.jpeg') }}"
+                        alt="Sign Language Gesture">
+                </div>
+            </section>
+
+            <section class="how-to-use">
+                <h2>How to Use This Application</h2>
+                
+                <div class="steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Allow Camera Access</h3>
+                        <p>Click the Start button and allow camera permission in the browser.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Learn the Gestures</h3>
+                        <p>View the gesture table and understand the sign for each word.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Show Your Sign</h3>
+                        <p>Keep your hand clearly in front of the camera and perform the gesture.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Check Recognition</h3>
+                        <p>The detected word appears below the camera and gets added to the sentence.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h3>Convert to Voice</h3>
+                        <p>Press the Voice button to read the recognized sentence aloud.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <img src="https://img.icons8.com/color/48/000000/hand.png" alt="Gesture Recognition">
+                        <h3>Real-time Recognition</h3>
+                        <p>Instant gesture detection and word prediction</p>
+                    </div>
+
+                    <div class="feature">
+                        <img src="https://img.icons8.com/color/48/000000/table.png" alt="Gesture Table">
+                        <h3>Gesture Reference</h3>
+                        <p>Complete table of gestures and their meanings</p>
+                    </div>
+
+                    <div class="feature">
+                        <img src="https://img.icons8.com/color/48/000000/voice.png" alt="Text to Speech">
+                        <h3>Text-to-Speech</h3>
+                        <p>Convert recognized words to clear voice output</p>
+                    </div>
+
+                    <div class="feature">
+                        <img src="https://img.icons8.com/color/48/000000/restaurant.png" alt="Restaurant">
+                        <h3>Restaurant Focused</h3>
+                        <p>Specialized vocabulary for dining scenarios</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 SignEase - Making restaurants accessible for everyone</p>
+        </footer>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignEase · gesture‑only restaurant assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f7fc;
+            color: #0b1e33;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem 2rem;
+        }
+
+        /* ----- navbar ----- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #1e40af, #6d28d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 1.1rem;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            border-bottom-color: #4f46e5;
+            color: #4f46e5;
+        }
+
+        /* ----- hero + gesture‑only pill ----- */
+        .hero {
+            background: white;
+            border-radius: 2.5rem;
+            padding: 2.8rem 3rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 20px 35px -8px rgba(0,20,50,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.4px;
+            padding: 0.4rem 1.1rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            border: 1px solid #a5b4fc;
+        }
+
+        .hero-content h1 {
+            font-size: 3.4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-gesture {
+            background: #fef9c3;
+            color: #854d0e;
+            padding: 0.1rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 0.5rem;
+            border: 1px solid #facc15;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #334155;
+            max-width: 550px;
+            margin-bottom: 1.8rem;
+        }
+
+        .gesture-command-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .command-pill {
+            background: #f1f5f9;
+            border-radius: 60px;
+            padding: 0.6rem 1.6rem;
+            font-weight: 500;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .command-pill span {
+            font-size: 1.3rem;
+        }
+
+        .pill-icon {
+            background: #1e293b;
+            color: white;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(105deg, #2563eb, #7c3aed);
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            box-shadow: 0 15px 25px -8px #4f46e5a0;
+            transition: 0.2s;
+            margin-top: 0.5rem;
+            border: none;
+        }
+
+        .cta-button:hover {
+            scale: 1.02;
+            background: linear-gradient(105deg, #1d4ed8, #6d28d9);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            width: 480px;
+            border-radius: 2rem;
+            object-fit: cover;
+            box-shadow: 0 30px 30px -20px rgba(0,0,0,0.2);
+        }
+
+        /* ----- awareness card (three commands) ----- */
+        .awareness-zone {
+            background: white;
+            border-radius: 2.5rem;
+            padding: 2rem 2.5rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 30px -12px #1e293b1a;
+        }
+
+        .section-tag {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2rem;
+        }
+
+        .section-tag span {
+            background: #2563eb;
+            color: white;
+            font-size: 1rem;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+
+        .command-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .cmd-card {
+            background: #f8fafc;
+            border-radius: 2rem;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: 0.15s;
+            text-align: center;
+        }
+
+        .cmd-card:hover {
+            border-color: #818cf8;
+            background: #f1f4f9;
+        }
+
+        .cmd-icon {
+            background: #1e1b4b;
+            color: white;
+            width: 65px;
+            height: 65px;
+            font-size: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            box-shadow: 0 8px 12px -4px #312e81;
+        }
+
+        .cmd-card h3 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #0f172a;
+        }
+
+        .cmd-card h4 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1e40af;
+            margin-bottom: 0.8rem;
+        }
+
+        .cmd-desc {
+            color: #334155;
+            font-size: 1rem;
+            background: #eef2ff;
+            padding: 0.5rem 0.8rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        /* ----- how to use / steps (updated with gestures) ----- */
+        .how-to-use {
+            background: white;
+            border-radius: 2.5rem;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 30px -12px #1e293b1a;
+        }
+
+        .how-to-use h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .step-card {
+            background: #f9f9ff;
+            border-radius: 1.8rem;
+            padding: 1.8rem 1.2rem;
+            border: 1px solid #dee5f0;
+        }
+
+        .step-number {
+            background: #4f46e5;
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.3rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.6rem;
+            color: #0f172a;
+        }
+
+        .gesture-hint {
+            background: #dbeafe;
+            color: #1e3a8a;
+            border-radius: 50px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.8rem;
+        }
+
+        /* ----- feature grid (minor update) ----- */
+        .features {
+            background: white;
+            border-radius: 2.5rem;
+            padding: 2rem 2.5rem 2.5rem;
+            box-shadow: 0 15px 30px -12px #1e293b1a;
+        }
+
+        .features h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature {
+            background: #f8fafc;
+            border-radius: 1.5rem;
+            padding: 1.6rem 1.2rem;
+            border: 1px solid #e9eef3;
+            text-align: center;
+        }
+
+        .feature img {
+            width: 48px;
+            margin-bottom: 0.8rem;
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* responsiveness */
+        @media (max-width: 1000px) {
+            .hero { grid-template-columns: 1fr; }
+            .command-showcase { grid-template-columns: repeat(2,1fr); }
+            .steps { grid-template-columns: repeat(2,1fr); }
+            .feature-grid { grid-template-columns: repeat(2,1fr); }
+        }
+
+        @media (max-width: 650px) {
+            .container { padding: 1rem; }
+            .navbar { flex-direction: column; align-items: start; gap: 0.5rem;}
+            .command-showcase { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.4rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>🤟 Gesture Recognition System</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/detect">Detect</a></li>
+        </ul>
+    </nav>
+
+    <!-- hero with gesture-only awareness -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">⚡ GESTURE‑ONLY MODE ⚡</div>
+            <h1>No buttons.&nbsp;&nbsp;Just signs.</h1>
+            <p class="subtitle">
+                Control the entire conversation with three essential gestures — 
+                <span class="highlight-gesture">start</span> 
+                <span class="highlight-gesture">speak</span> 
+                <span class="highlight-gesture">backspace</span>.
+            </p>
+
+            <!-- live command row visual -->
+            <div class="gesture-command-row">
+                <div class="command-pill"> start_command <span class="pill-icon">new sentence</span></div>
+                <div class="command-pill"> speak_command <span class="pill-icon">text‑to‑speech</span></div>
+                <div class="command-pill"> backspace <span class="pill-icon">delete last word</span></div>
+            </div>
+
+            <a href="/detect" class="cta-button">Try gesture-only detection</a>
+        </div>
+        <div class="hero-image">
+            <!-- your original home.jpeg (dynamic) -->
+            <img src="{{ url_for('static', filename='images/home.jpeg') }}" alt="person showing sign language">
+        </div>
+    </section>
+
+    <!-- AWARENESS CARD – dedicated to three pillar gestures -->
+    <div class="awareness-zone">
+        <div class="section-tag">
+            THREE GESTURES – FULL CONTROL
+            <span>no voice, no touch</span>
+        </div>
+        <div class="command-showcase">
+            <div class="cmd-card">
+                <div class="cmd-icon">✊</div>
+                <h3>start_command</h3>
+                <h4>begin a new sentence</h4>
+                <p class="cmd-desc">clears previous & resets</p>
+                <div style="margin-top:1rem; background:#e6f7e6; border-radius:30px; padding:0.4rem;">👆 show fist</div>
+            </div>
+            <div class="cmd-card">
+                <div class="cmd-icon">🗣️</div>
+                <h3>speak_command</h3>
+                <h4>hear full sentence</h4>
+                <p class="cmd-desc">text‑to‑speech reads aloud</p>
+                <div style="margin-top:1rem; background:#e6f7e6; border-radius:30px; padding:0.4rem;">🖐️ open palm</div>
+            </div>
+            <div class="cmd-card">
+                <div class="cmd-icon">⌫</div>
+                <h3>backspace</h3>
+                <h4>remove last word</h4>
+                <p class="cmd-desc">undo mistake / correction</p>
+                <div style="margin-top:1rem; background:#e6f7e6; border-radius:30px; padding:0.4rem;">👉 point / flick</div>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top:2rem; color:#475569; background:#eef2ff; padding:0.8rem; border-radius:60px;">
+            💡 All other signs (eat, water, bill, etc.) build your sentence — these three commands control the flow.
+        </p>
+    </div>
+
+    <!-- HOW TO USE (adapted for gesture-only) -->
+    <section class="how-to-use">
+        <h2>Gesture‑only workflow</h2>
+        <div class="steps">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Show 'start_command'</h3>
+                <p>clears the sentence and gets ready for a new order.</p>
+                <div class="gesture-hint">✊ fist</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Sign your words</h3>
+                <p>eat, drink, bill, thank you … each adds to the sentence.</p>
+                <div class="gesture-hint">🤞🤟🤙</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Backspace if needed</h3>
+                <p>wrong word? use backspace to delete the last word.</p>
+                <div class="gesture-hint">👉 backspace</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>speak_command to finish</h3>
+                <p>converts your sentence to loud, clear voice.</p>
+                <div class="gesture-hint">🖐️ open palm</div>
+            </div>
+        </div>
+        <p style="margin-top:1.5rem; background:#fff2d7; border-radius:40px; padding:0.5rem 1rem;">
+            ✅ Never touch a button — the camera reads everything, including commands.
+        </p>
+    </section>
+
+    <!-- KEY FEATURES slight rewrite to reflect awareness -->
+    <section class="features">
+        <h2>✨ why gesture‑only changes everything</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <img src="https://img.icons8.com/color/48/000000/hand.png" alt="hand">
+                <h3>Three command gestures</h3>
+                <p>Start, speak, backspace – fully contactless.</p>
+            </div>
+            <div class="feature">
+                <img src="https://img.icons8.com/color/48/microphone.png" alt="voice">
+                <h3>speak_command TTS</h3>
+                <p>Hear the entire sentence with one gesture.</p>
+            </div>
+            <div class="feature">
+                <img src="https://img.icons8.com/color/48/restaurant--v1.png" alt="restaurant">
+                <h3>backspace for errors</h3>
+                <p>No need to restart — just delete last word.</p>
+            </div>
+            <div class="feature">
+                <img src="https://img.icons8.com/color/48/000000/idea.png" alt="aware">
+                <h3>full awareness</h3>
+                <p>Every gesture is a deliberate command or word.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 SignEase – pure gesture control for inclusive dining</p>
+    </footer>
+</div>
+<!-- tiny extra explanation (floating subtle) -->
+<div style="position:fixed; bottom:20px; right:20px; background:#1e293b; color:white; border-radius:60px; padding:0.5rem 1.3rem; font-size:0.9rem; opacity:0.8; box-shadow:0 5px 15px black;">
+    ⚡ start | speak | backspace
+</div>
+</body>
+</html>
