@@ -53,33 +53,19 @@ Webcam Input → Hand Detection → Landmark Extraction → Feature Vector → M
 
 
 🔄 System Workflow
-
-
-┌────────────────────────────┐
-│      Webcam Input          │
-└────────────┬───────────────┘
-             │
-     ┌───────▼────────┐
-     │ MediaPipe Hands│
-     └───────┬────────┘
-             │
-     ┌───────▼──────────────┐
-     │ Extract Landmarks    │
-     │ (21 points → 63 data)│
-     └───────┬──────────────┘
-             │
-     ┌───────▼───────────┐
-     │ Feature Vector    │
-     └───────┬───────────┘
-             │
-     ┌───────▼───────────┐
-     │ ANN Model Predict │
-     └───────┬───────────┘
-             │
-     ┌───────▼───────────┐
-     │ Display Output    │
-     └───────────────────┘
-
+```
+Webcam Input
+      ↓
+MediaPipe Hands
+      ↓
+Extract Landmarks (21 points → 63 data)
+      ↓
+Feature Vector
+      ↓
+ANN Model Predict
+      ↓
+Display Output
+```
 
 📊 Model Details:
 
@@ -92,37 +78,36 @@ Optimizer: Adam
 Loss Function: Sparse Categorical Crossentropy
 
 
-📂 Project Structure
-
-
+## 📂 Project Structure
+```
 GestureRecognition/
-│
-├── data/
+│── data/
 │   └── static_data/
 │       └── static_data.csv
 │
-├── models/
+│── models/
 │   ├── static_model.h5
 │   └── static_labels.pkl
 │
-├── src/
+│── src/
 │   └── source/
 │       ├── collect_static.py
 │       ├── train_static.py
 │       └── predict_static.py
 │
-├── static/
+│── static/
 │   ├── css/
 │   ├── js/
 │   └── images/
 │
-├── templates/
+│── templates/
 │   ├── index.html
 │   └── detect.html
 │
-├── app.py
-├── README.md
-└── requirements.txt
+│── app.py
+│── README.md
+│── requirements.txt
+```
 
 
 ▶️ Run Instructions
