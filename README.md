@@ -33,6 +33,7 @@ The system is integrated with a Flask-based web application, enabling user inter
 
 
 🛠️ Technologies Used
+
 ┌----------------------------------------------------------------┐
 |    Technology	            |             Purpose                |
 |----------------------------------------------------------------|
@@ -54,6 +55,7 @@ Webcam Input → Hand Detection → Landmark Extraction → Feature Vector → M
 
 
 🔄 System Workflow
+
 
 ┌────────────────────────────┐
 │      Webcam Input          │
@@ -93,6 +95,7 @@ Loss Function: Sparse Categorical Crossentropy
 
 
 📂 Project Structure
+
 
 GestureRecognition/
 │
